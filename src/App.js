@@ -2,7 +2,7 @@ import 'devextreme/dist/css/dx.light.css';
 
 import { useState, useCallback } from 'react';
 
-import { Scheduler, View } from 'devextreme-react/scheduler';
+import { Scheduler, View, Editing } from 'devextreme-react/scheduler';
 
 import { appointments } from './appointments';
 
@@ -35,6 +35,9 @@ function App() {
             endDayHour={22}
          />
          <View type="month" />
+         <Editing
+            allowDragging={false}
+         />
       </Scheduler>
    );
 }
