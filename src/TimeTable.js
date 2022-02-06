@@ -228,13 +228,12 @@ class AppointmentFormContainerBasic extends React.PureComponent {
    }
 }
 
-/* eslint-disable-next-line react/no-multi-comp */
 export default class TimeTable extends React.PureComponent {
    constructor(props) {
       super(props);
       this.state = {
          data: appointments,
-         currentDate: '2018-06-27',
+         currentDate: new Date().toISOString(),
          confirmationVisible: false,
          editingFormVisible: false,
          deletedAppointmentId: undefined,
