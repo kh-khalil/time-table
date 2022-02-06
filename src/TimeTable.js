@@ -331,6 +331,11 @@ export default class TimeTable extends React.PureComponent {
       this.toggleConfirmationVisible();
    }
 
+   excludeWeekend() {
+      console.log('hi')
+      return [5, 6]
+   }
+
    commitChanges({ added, changed, deleted }) {
       this.setState((state) => {
          let { data } = state;
@@ -378,6 +383,7 @@ export default class TimeTable extends React.PureComponent {
                <WeekView
                   startDayHour={startDayHour}
                   endDayHour={endDayHour}
+                  excludedDays={this.excludeWeekend()}
                />
                <MonthView />
                <AllDayPanel />
@@ -388,10 +394,15 @@ export default class TimeTable extends React.PureComponent {
                   showCloseButton
                   showDeleteButton
                />
+               {/* 
+                  Tolbar should be defined before it's elements (view switcher, today btn, date navigator)
+                  Ordering from top to bottom will draw the components from right to left 
+                */}
                <Toolbar />
                <ViewSwitcher />
                <DateNavigator />
                <TodayButton />
+
                <AppointmentForm
                   overlayComponent={this.appointmentForm}
                   visible={editingFormVisible}
