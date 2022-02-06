@@ -331,11 +331,6 @@ export default class TimeTable extends React.PureComponent {
       this.toggleConfirmationVisible();
    }
 
-   excludeWeekend() {
-      console.log('hi')
-      return [5, 6]
-   }
-
    commitChanges({ added, changed, deleted }) {
       this.setState((state) => {
          let { data } = state;
@@ -383,7 +378,7 @@ export default class TimeTable extends React.PureComponent {
                <WeekView
                   startDayHour={startDayHour}
                   endDayHour={endDayHour}
-                  excludedDays={this.excludeWeekend()}
+               // excludedDays={[5, 6]} //Excluding Friday & Saturday. Accepts an array of zero-based day indexes
                />
                <MonthView />
                <AllDayPanel />
