@@ -16,6 +16,7 @@ function App() {
 
    return (
       <Scheduler
+         timeZone="Europe/Berlin"
          currentDate={currentDate}
          onOptionChanged={handlePropertyChange}
          dataSource={appointments}
@@ -37,6 +38,7 @@ function App() {
          <View type="month" />
          <Editing
             allowDragging={false}
+            allowTimeZoneEditing={true}
          />
       </Scheduler>
    );
