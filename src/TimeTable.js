@@ -365,6 +365,7 @@ export default class TimeTable extends React.PureComponent {
             <Scheduler
                data={data}
                height={660}
+               firstDayOfWeek={1}
             >
                <ViewState
                   currentDate={currentDate}
