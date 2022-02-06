@@ -2,7 +2,7 @@ import 'devextreme/dist/css/dx.light.css';
 
 import { useState, useCallback } from 'react';
 
-import { Scheduler } from 'devextreme-react/scheduler';
+import { Scheduler, View } from 'devextreme-react/scheduler';
 
 import { appointments } from './appointments';
 
@@ -22,8 +22,19 @@ function App() {
          textExpr="title"
          allDayExpr="dayLong"
          recurrenceRuleExpr="recurrence"
+         defaultCurrentView="week"
       >
-
+         <View
+            type="day"
+            startDayHour={10}
+            endDayHour={22}
+         />
+         <View
+            type="week"
+            startDayHour={10}
+            endDayHour={22}
+         />
+         <View type="month" />
       </Scheduler>
    );
 }
