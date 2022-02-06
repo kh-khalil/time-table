@@ -24,6 +24,10 @@ function App() {
          allDayExpr="dayLong"
          recurrenceRuleExpr="recurrence"
          defaultCurrentView="week"
+         // adaptivityEnabled={true} // for mobile view adaptivity
+         showCurrentTimeIndicator={true}
+         shadeUntilCurrentTime={true}
+         allowDragging={true}
       >
          <View
             type="day"
@@ -37,7 +41,7 @@ function App() {
          />
          <View type="month" />
          <Editing
-            allowDragging={false}
+            allowDragging={true}
             allowTimeZoneEditing={true}
          />
       </Scheduler>
