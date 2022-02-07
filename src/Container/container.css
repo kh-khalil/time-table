@@ -1,0 +1,15 @@
+.home-container {
+   display: flex;
+   justify-content: space-evenly;
+   height: 2.5rem;
+   width: 50%;
+   left: 25%;
+   position: fixed;
+   top: 40%; 
+}
+.approach-container{
+   text-align: center;
+}
+.approach-btn{
+   margin: 0.7rem;
+}
