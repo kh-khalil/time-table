@@ -1,76 +1,77 @@
-# Getting Started with Create React App
+# Time Table (Scheduler) App Instructions
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was created as a solution for a Frontend React task.
 
-## Available Scripts
+## Run the project
+1. Clone the projet from the main branch.
+2. run ``` npm install ```
+3. run ``` npm start ```
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Project Insights & Features
+### First Approach
+In this approach, you will find the following features:
+From left to right & from top to bottom
+#### Toolbar
+- Custom Navigation button to toggle views.
+- ***Today*** button to navigate you to the current day.
+- ***Prev. & Next*** buttons to navigate you to next and previous weeks.
+- ***Current Date*** button when on clicked opens a Calender to jump to a specific date.
+- ***Week & Month*** selectbox to change the current view.
+#### Time Table
+Week view consists of:
+- Columns: week days (can be modified to have a specific start date or to hide weekends)
+- Rows: time slots (30 mins each)
+*You can add an all day event in the first row*
+For each cell, you can: 
+1. ****Double Click**** in an empty cell to add an event.
+2. ****Click**** on an event to view it's info with the 2 buttons (****Edit & Delete****)
+3. ****Double Click**** on an event to quickly edit it.
+4. ****Drag & Drop**** any event from any time slot to another one OR from any day to another day.
+5. ****Resize**** any event to increase/decrease it's duration.
+****Month View**** has the same features except for resizing.
+##### Creating/Editing event
+You can specify an event title, starting date & time, ending date & time, event location and description
+#### Floating button 
+Another way to easily add an event.
 
 
+### Second Approach
+In this approach, you will find the following features:
+From left to right & from top to bottom
+#### Toolbar
+- Custom Navigation button to toggle views.
+- ***Prev. & Next*** buttons to navigate you to next and previous weeks.
+- ***Current Date*** button when on clicked opens a Calender to jump to a specific date.
+- ***Day, Week & Month*** buttons to change the current view.
+#### Time Table
+Week view consists of:
+- Columns: week days (can be modified to have a specific start date or to hide weekends)
+- Rows: time slots (30 mins each)
+*You can add an all day event in the first row*
+For each cell, you can: 
+1. ****Double Click**** in an empty cell to add an event.
+2. ****Click**** on an event to view it's info with the 2 buttons (****Edit & Delete****)
+3. ****Double Click**** on an event to quickly edit it.
+4. ****Drag & Drop**** any event from any time slot to another one OR from any day to another day.
+5. ****Resize**** any event to increase/decrease it's duration.
+
+****Day View**** shows all events for the current/selected date.
+****Month View**** has the same features except for resizing.
+##### Creating/Editing event
+Double click on any cell/event or use the floating add button then fill in the following fields:
+- Subject
+- Starting Date & Time
+- Select starting date's timezone (optional)
+- Ending Date & Time
+- Select ending date's timezone (can choose a different timezone) (optional)
+- All day toggle switch (check if you want this event to be an all day event)
+- Repeat toggle switch (when checked, another window will open with event repeating options)
+- Description
+#### Floating button 
+Another way to easily add an event.
+
+#### A Toast appears for every action you make
+**Note: Editing (from the form, drag and drop or resize) a repeating event will trigger a confirmation where you can select to edit only that appointment or edit the whole series**
 
 
-You can add a predefined appointment that can be easily dragged and dropped into the calender.
-You can view and follow this tutorial from DevExtreme [DevExtreme-CustomDragAndDrop](https://js.devexpress.com/Demos/WidgetsGallery/Demo/Scheduler/CustomDragAndDrop/React/Light/)
+## Hope you enjoy this simple Scheduler!
