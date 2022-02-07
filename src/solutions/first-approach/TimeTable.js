@@ -39,7 +39,7 @@ import Create from '@mui/icons-material/Create';
 
 import { StyledFab, StyledDiv, classes } from "./CustomStyles";
 
-import { appointments } from './appointments';
+import { appointments } from '../../data/appointments';
 
 
 class AppointmentFormContainerBasic extends React.PureComponent {

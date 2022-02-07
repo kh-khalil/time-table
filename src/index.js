@@ -1,14 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import TimeTable from './TimeTable';
-import App from './App';
+import Container from './Container/Container'
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <TimeTable /> */}
-    <App />
+    <Container />
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -5,12 +5,12 @@ import { useState, useCallback } from 'react';
 import { Scheduler, View, Editing } from 'devextreme-react/scheduler';
 import notify from 'devextreme/ui/notify';
 
-import { appointments } from './appointments';
+import { appointmentsDevExtreme } from '../../data/appointments';
 
 function App() {
 
-
    const [currentDate, setCurrentDate] = useState(new Date());
+
    const handlePropertyChange = useCallback((e) => {
       if (e.name === 'currentDate') {
          setCurrentDate(e.value);
@@ -38,7 +38,7 @@ function App() {
          timeZone="Europe/Berlin"
          currentDate={currentDate}
          onOptionChanged={handlePropertyChange}
-         dataSource={appointments}
+         dataSource={appointmentsDevExtreme}
          textExpr="title"
          allDayExpr="dayLong"
          recurrenceRuleExpr="recurrence"
