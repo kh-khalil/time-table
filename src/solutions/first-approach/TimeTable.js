@@ -1,7 +1,6 @@
 /* eslint-disable max-classes-per-file */
 /* eslint-disable react/no-unused-state */
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import { ViewState, EditingState } from '@devexpress/dx-react-scheduler';
 import {
@@ -29,7 +28,6 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Button from '@mui/material/Button';
-import Fab from '@mui/material/Fab';
 import IconButton from '@mui/material/IconButton';
 import AddIcon from '@mui/icons-material/Add';
 import TextField from '@mui/material/TextField';
@@ -39,69 +37,11 @@ import Close from '@mui/icons-material/Close';
 import CalendarToday from '@mui/icons-material/CalendarToday';
 import Create from '@mui/icons-material/Create';
 
-import { appointments } from './appointments';
+import { StyledFab, StyledDiv, classes } from "./CustomStyles";
 
-const PREFIX = 'Demo';
-const classes = {
-   content: `${PREFIX}-content`,
-   header: `${PREFIX}-header`,
-   closeButton: `${PREFIX}-closeButton`,
-   buttonGroup: `${PREFIX}-buttonGroup`,
-   button: `${PREFIX}-button`,
-   picker: `${PREFIX}-picker`,
-   wrapper: `${PREFIX}-wrapper`,
-   icon: `${PREFIX}-icon`,
-   textField: `${PREFIX}-textField`,
-   addButton: `${PREFIX}-addButton`,
-};
+import { appointments } from '../../data/appointments';
 
-const StyledDiv = styled('div')(({ theme }) => ({
-   [`& .${classes.icon}`]: {
-      margin: theme.spacing(2, 0),
-      marginRight: theme.spacing(2),
-   },
-   [`& .${classes.header}`]: {
-      overflow: 'hidden',
-      paddingTop: theme.spacing(0.5),
-   },
-   [`& .${classes.textField}`]: {
-      width: '100%',
-   },
-   [`& .${classes.content}`]: {
-      padding: theme.spacing(2),
-      paddingTop: 0,
-   },
-   [`& .${classes.closeButton}`]: {
-      float: 'right',
-   },
-   [`& .${classes.picker}`]: {
-      marginRight: theme.spacing(2),
-      '&:last-child': {
-         marginRight: 0,
-      },
-      width: '50%',
-   },
-   [`& .${classes.wrapper}`]: {
-      display: 'flex',
-      justifyContent: 'space-between',
-      padding: theme.spacing(1, 0),
-   },
-   [`& .${classes.buttonGroup}`]: {
-      display: 'flex',
-      justifyContent: 'flex-end',
-      padding: theme.spacing(0, 2),
-   },
-   [`& .${classes.button}`]: {
-      marginLeft: theme.spacing(2),
-   },
-}));
-const StyledFab = styled(Fab)(({ theme }) => ({
-   [`&.${classes.addButton}`]: {
-      position: 'absolute',
-      bottom: theme.spacing(3),
-      right: theme.spacing(4),
-   },
-}));
+
 class AppointmentFormContainerBasic extends React.PureComponent {
    constructor(props) {
       super(props);
@@ -288,13 +228,12 @@ class AppointmentFormContainerBasic extends React.PureComponent {
    }
 }
 
-/* eslint-disable-next-line react/no-multi-comp */
 export default class TimeTable extends React.PureComponent {
    constructor(props) {
       super(props);
       this.state = {
          data: appointments,
-         currentDate: '2018-06-27',
+         currentDate: new Date().toISOString(),
          confirmationVisible: false,
          editingFormVisible: false,
          deletedAppointmentId: undefined,
@@ -426,6 +365,7 @@ export default class TimeTable extends React.PureComponent {
             <Scheduler
                data={data}
                height={660}
+               firstDayOfWeek={1}
             >
                <ViewState
                   currentDate={currentDate}
@@ -439,6 +379,7 @@ export default class TimeTable extends React.PureComponent {
                <WeekView
                   startDayHour={startDayHour}
                   endDayHour={endDayHour}
+               // excludedDays={[5, 6]} //Excluding Friday & Saturday. Accepts an array of zero-based day indexes
                />
                <MonthView />
                <AllDayPanel />
@@ -449,10 +390,15 @@ export default class TimeTable extends React.PureComponent {
                   showCloseButton
                   showDeleteButton
                />
+               {/* 
+                  Tolbar should be defined before it's elements (view switcher, today btn, date navigator)
+                  Ordering from top to bottom will draw the components from right to left 
+                */}
                <Toolbar />
                <ViewSwitcher />
                <DateNavigator />
                <TodayButton />
+
                <AppointmentForm
                   overlayComponent={this.appointmentForm}
                   visible={editingFormVisible}
