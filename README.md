@@ -1,4 +1,5 @@
 # Time Table (Scheduler) App Instructions
+Check out the [live version](https://amazing-engelbart-f1419b.netlify.app/)
 
 This project was created as a solution for a Frontend React task.
 
