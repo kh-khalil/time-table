@@ -74,11 +74,8 @@ Double click on any cell/event or use the floating add button then fill in the f
 - All day toggle switch (check if you want this event to be an all day event)
 - ****Repeat**** toggle switch (when checked, another window will open with event ****repeating options****)
 - Description
-<<<<<<< HEAD
 ### Floating button 
 Another way to easily add an event.
-=======
->>>>>>> 09ad0c9bd0e8158625eb80c72825ee57b8885be3
 
 ### A Toast appears for every action you make
 **Note: Editing (from the form, drag and drop or resize) a repeating event will trigger a confirmation where you can select to edit only that appointment or edit the whole series**
